@@ -32,12 +32,6 @@ There's two ways to consume this crate API: from Rust code via the `drag` crate 
   let window = tao::window::WindowBuilder::new().build(&event_loop).unwrap();
 
   drag::start_drag(
-    #[cfg(target_os = "linux")]
-    {
-      use tao::platform::unix::WindowExtUnix;
-      window.gtk_window()
-    },
-    #[cfg(not(target_os = "linux"))]
     &window,
     item,
     preview_icon,
